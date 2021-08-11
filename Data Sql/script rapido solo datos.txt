@@ -1,0 +1,25 @@
+create database if not EXISTS microempresa;
+
+use microempresa;
+
+truncate `departamento`;
+INSERT INTO `departamento` (`codigo_departamento`, `descripcion_departamento`, `nombre_departamento`) VALUES
+(1, 'Bogotá DC', 'Bogotá'),
+(2, 'Bolivar', 'Bolivar');
+
+truncate `ciudad`;
+INSERT INTO `ciudad` (`codigo_ciudad`, `descripcion_ciudad`, `nombre_ciudad`, `codigo_departamento`) VALUES
+(1, 'Bogota DC', 'Bogota', 1),
+(2, 'Cartagena', 'Cartagena', 2);
+
+truncate `clientes`;
+INSERT INTO `clientes` (`codigo_cliente`, `direccion_cliente`, `foto_cliente`, `nombre_cliente`, `numero_identificacion_cliente`, `telefono_cliente`, `tipo_identificacion_cliente`, `codigo_ciudad_reside_cliente`, `codigo_departamento_reside_cliente`) VALUES
+(1, 'kr 111 # 22H - 21', '', 'brayan batista zuñiga', '1143374881', '+573003526750', 'CC', 1, 1),
+(2, 'kr 111 # 22H - 21', '', 'Alberto Carlos Barboza', '123456789', '6900544', 'CC', 2, 2);
+
+truncate `encabezado_factura`;
+INSERT INTO `encabezado_factura` (`numero_factura`, `direccion_factura`, `fecha_factura`, `fecha_final_factura`, `fecha_inicial_factura`, `telefono_factura`, `tipo_factura`, `total_factura`, `codigo_ciudad_factura`, `codigo_cliente`, `codigo_departamento_factura`) VALUES
+(1024566, 'kr 77a #69a - 63', '2021-01-01 00:30:33', '2021-01-01 00:30:33', '2021-01-01 00:30:33', '3003526750', 'No Operacional', 500000, 1, 1, 1),
+(1024567, 'kr 111 #22h-21', '2021-08-10 22:28:29', '2021-08-10 22:28:29', '2021-01-10 22:28:29', '3003526750', 'Operacional', 23890555, 1, 1, 1),
+(1024568, 'mz 76 l17 plan 500b', '2022-08-10 22:28:29', '2022-08-10 22:28:29', '2022-08-07 22:28:29', '6900544', 'Operacional', 50000, 2, 2, 2),
+(1024570, 'factura de pruebva 4', '2020-12-11 00:30:33', '2021-12-11 00:30:33', '2021-12-11 00:30:33', '6900544', 'Venta Directa', 200000, 2, 1, 2);
